@@ -1,10 +1,21 @@
 //This code is designed by Guoxun Wu
-//Combine led matrix with the soundSensor clap code and game code
+
+#include <Adafruit_TLC5947.h>
 
 //LED Matrtix
 #include "LedControl.h"
 
 LedControl lc=LedControl(12,11,10,1);
+
+//Led 24 channal 
+#define NUM_TLC5974 1
+
+#define data   4
+#define clock   5
+#define latch   6
+#define oe  -1  // set to -1 to not use the enable pin (its optional)
+
+Adafruit_TLC5947 tlc = Adafruit_TLC5947(NUM_TLC5974, clock, data, latch);
 
 /* we always wait a bit between updates of the display */
 unsigned long delaytime=500;
@@ -35,6 +46,9 @@ int del = 50;
 boolean LEDStatus=false;
 
 void setup() {
+    Serial.begin(9600);
+  Serial.println("TLC5974 test");
+
     for (int i=first; i<=sixth; i++) {
       pinMode(i, OUTPUT);
     }
