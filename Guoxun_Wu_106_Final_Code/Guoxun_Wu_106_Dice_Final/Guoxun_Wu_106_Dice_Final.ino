@@ -45,8 +45,8 @@ int del = 50;
 boolean LEDStatus=false;
 
 void setup() {
-    Serial.begin(9600);
-  Serial.println("TLC5974 test");
+//    Serial.begin(9600);
+//  Serial.println("TLC5974 test");
 
     for (int i=first; i<=sixth; i++) {
       pinMode(i, OUTPUT);
