@@ -1,21 +1,10 @@
 //This code is designed by Guoxun Wu
-
-#include <Adafruit_TLC5947.h>
+//Combine led matrix with the soundSensor clap code and game code
 
 //LED Matrtix
 #include "LedControl.h"
 
 LedControl lc=LedControl(12,11,10,1);
-
-//Led 24 channal 
-#define NUM_TLC5974 1
-
-#define data   4
-#define clock   5
-#define latch   6
-#define oe  -1  // set to -1 to not use the enable pin (its optional)
-
-Adafruit_TLC5947 tlc = Adafruit_TLC5947(NUM_TLC5974, clock, data, latch);
 
 /* we always wait a bit between updates of the display */
 unsigned long delaytime=500;
@@ -38,6 +27,8 @@ int third = 4;
 int fourth = 5;
 int fifth = 6;
 int sixth = 7;
+int seven = 8;
+int eight = 9;
 int del = 50;
 
 //int pressed = 0;
@@ -46,9 +37,6 @@ int del = 50;
 boolean LEDStatus=false;
 
 void setup() {
-    Serial.begin(9600);
-  Serial.println("TLC5974 test");
-
     for (int i=first; i<=sixth; i++) {
       pinMode(i, OUTPUT);
     }
@@ -195,7 +183,14 @@ void showNumber(int number) {
     digitalWrite(fifth, HIGH);    
   }
   if (number == 6) {
-    digitalWrite(sixth, HIGH);    
+    digitalWrite(sixth, HIGH);
+  }
+      if (number == 7) {
+        
+      }
+    digitalWrite(seven, HIGH);
+      if (number == 8) {
+    digitalWrite(eight, HIGH);    
   }
 }
 
@@ -204,7 +199,7 @@ void buildUpTension() {
   // light LEDs from left to right and back to build up tension
   // while waiting for the dice to be thrown
   // left to right
-  for (int i=first; i<=sixth; i++) {
+  for (int i=first; i<=eight; i++) {
     if (i!=first) {
       digitalWrite(i-1, LOW);
     }
@@ -212,8 +207,8 @@ void buildUpTension() {
     delay(100);
   }
   // right to left
-  for (int i=sixth; i>=first; i--) {
-    if (i!=sixth) {
+  for (int i=eight; i>=first; i--) {
+    if (i!=eight) {
       digitalWrite(i+1, LOW);
     }
     digitalWrite(i, HIGH);
@@ -223,7 +218,7 @@ void buildUpTension() {
 
 int throwDice() {
   // get a random number in the range [1,6]
-  int randNumber = random(1,7);
+  int randNumber = random(1,9);
   
   #ifdef DEBUG
     Serial.println(randNumber);
@@ -236,7 +231,7 @@ int throwDice() {
 //  for (int i=first; i<=sixth; i++) {
 //    digitalWrite(i, value);
 //  }
-//}
+
 void loop() {
   int SensorData=digitalRead(soundSensor); 
 
@@ -273,7 +268,7 @@ case 5 : five5();
 break;
 case 6 : six6();
 break;}
-     delay(1200);
+     delay(1000);
 
 }
 
