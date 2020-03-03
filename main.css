@@ -1,0 +1,87 @@
+#navbar {
+  background-color: #333; /* Black background color */
+  position: fixed; /* Make it stick/fixed */
+  top: 0; /* Stay on top */
+  width: 100%; /* Full width */
+  transition: top 0.3s; /* Transition effect when sliding down (and up) */
+}
+
+/* Style the navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+
+body {
+  background-color: 247,247,247;
+  font-family: "Helvetica", "Arial", sans-serif;
+  line-height: 1.5;
+  padding: 30px 20px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 1280,720;
+}
+
+h1 {
+  padding: 20px 0px 10px 0px;
+
+}
+
+
+
+/* This changes color and removes default underline in links  */
+a {
+color: #69CBBB;
+text-decoration: none;
+
+}
+
+/* Centers images */
+img {
+  display: block;
+  margin: 0px auto;
+  width: 70%;
+}
+
+
+/* When you put a period in front of a CSS declaration, it indicates you are
+creating a new class. We can apply this to div elements to create different
+portfolio entries */
+
+.portfolio-item {
+  margin-top: 60px;
+  padding: 40px;
+  background-color: #f7f7f7;
+}
+
+/* The embed-container class is for iframes containing content from Vimeo. This will allow videos to resize when the window is scaled, making this site mobile-friendly! */
+
+.embed-container {
+  position: relative;
+  padding-bottom: 15.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 90%;
+}
